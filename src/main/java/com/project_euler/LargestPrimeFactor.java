@@ -12,35 +12,14 @@ public static long getFirstPrimeFactor(long n1){
 
 public static long getLargestPrimeFactor(long number){
     long div = number / getFirstPrimeFactor(number);
-    getFirstPrimeFactor(div);
-    if (div != getFirstPrimeFactor(div)){
-        div = getLargestPrimeFactor(div);
-
+    while (div != getFirstPrimeFactor(div)){
+        long div2 = div / getFirstPrimeFactor(div);
+        div = div2;
     }
-        return div;
-    }
+    return div;
+}
     
-
-
-
     public static void main (String [] args){
-        
-        
-        
-        //long number = 600851475143L;
-
-        /* System.out.println(getFirstPrimeFactor(600851475143L));
-        long div = 600851475143L / 71;
-        System.out.println(div);
-        System.out.println(getFirstPrimeFactor(div));
-
-        long div2 = div / 839;
-        System.out.println(div2);
-        System.out.println(getFirstPrimeFactor(div2));
-        
-        long div3 = div2 / 1471;
-        System.out.println(div3);
-        System.out.println(getFirstPrimeFactor(div3)); */
         
         System.out.println(getLargestPrimeFactor(600851475143L));
 
